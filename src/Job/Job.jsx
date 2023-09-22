@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom";
 
 
 const Job = ({ job }) => {
-    const { logo, job_title, company_name, remote_or_onsite, location, job_type, salary } = job;
+    const {id, logo, job_title, company_name, remote_or_onsite, location, job_type, salary } = job;
 
     return (
-        <div className="border rounded-lg mt-8">
-            <div className="card card-compact  bg-base-100 shadow-xl">
-                <img src={logo} alt={job_title} className="w-28 ml-4 mt-4" />
+        <div className=" mt-8">
+            <div className="card card-compact  bg-base-100 shadow-xl border rounded-lg ">
+                <img src={logo} alt={job_title} className="w-28 h-9 ml-4 mt-4" />
                 <div className="card-body">
                     <h2 className="card-title">{job_title}</h2>
                     <p>{company_name}</p>
@@ -19,7 +20,9 @@ const Job = ({ job }) => {
                         <h3>Salary: {salary}</h3>
                     </div>
                     <div className="card-actions">
+                        <Link to ={`/job/${id}`}>
                         <button className="btn bg-fuchsia-400 text-white">View Details</button>
+                        </Link>
                     </div>
                 </div>
             </div>
